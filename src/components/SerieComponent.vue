@@ -24,14 +24,20 @@ export default {
       this.serie = result;
     });
   },
-  updated(oldProps, props) {
-    if (oldProps != props) {
+
+  //El watch y el metodo fetchData es para notar cambios en el id de la url y actualizarlo si cambia
+  watch: {
+    '$route.params.id': 'fetchData'
+  },
+  methods: {
+    fetchData() {
       var id = this.$route.params.id;
       servicio.getSerie(id).then((result) => {
         this.serie = result;
       });
     }
   },
+  //Con serie cogemos el array del valor de la serie
   data() {
     return {
       serie: [],
