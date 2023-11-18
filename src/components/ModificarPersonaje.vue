@@ -24,6 +24,15 @@
       <br />
       <button class="btn btn-success">Modificar Personaje</button>
     </form>
+    <div v-if="series.find((serie) => serie.idSerie === idSerie)">
+      <h1>{{ series.find((serie) => serie.idSerie === idSerie).nombre }}</h1>
+      <img :src="series.find((serie) => serie.idSerie === idSerie).imagen" alt="" style="width:250px;height:250px"/>
+    </div>
+
+    <div v-if="personajes.find((personaje) => personaje.idPersonaje === idPersonaje)">
+      <h1>{{ personajes.find((personaje) => personaje.idPersonaje === idPersonaje).nombre }}</h1>
+      <img :src="personajes.find((personaje) => personaje.idPersonaje === idPersonaje).imagen" alt="" style="width:250px;height:250px"/>
+    </div>
   </div>
 </template>
 
