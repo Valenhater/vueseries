@@ -69,4 +69,15 @@ export default class ServiceSeries {
       });
     });
   }
+  delete(idpersonaje){
+    return new Promise (function(resolve) {
+      var request = "api/personajes/" + idpersonaje
+      var url = Global.urlApiSeries + request
+      console.log(url)
+      axios.delete(url).then(response => {
+        console.log("Borrado loquete");
+        resolve(response);
+      })
+    })
+  }
 }
